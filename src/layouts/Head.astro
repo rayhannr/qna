@@ -1,0 +1,19 @@
+---
+import { ClientRouter } from 'astro:transitions'
+import SpeedInsights from '@vercel/speed-insights/astro'
+---
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width" />
+  <link rel="icon" type="image/svg+xml" href="/r.webp" />
+  <meta name="generator" content={Astro.generator} />
+  <title>260 Essential Questions Before Marriage</title>
+  {
+    ['Geist-Bold.woff2', 'Geist-Regular.woff2', 'Geist-Medium.woff2', 'Geist-ExtraBold.woff2'].map((font) => (
+      <link rel="preload" href={`/fonts/${font}`} as="font" type="font/woff2" crossorigin />
+    ))
+  }
+  <ClientRouter />
+  <SpeedInsights />
+</head>
