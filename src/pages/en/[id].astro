@@ -1,0 +1,17 @@
+---
+import Page from '@/components/Page.astro'
+import { defaultLang } from '@/i18n/ui'
+import { getSidebarItems, getSidebarMap } from '@/lib/sidebar'
+
+export async function getStaticPaths() {
+  const sidebarItems = getSidebarItems(defaultLang)
+  return sidebarItems.map((item) => ({
+    params: { id: item.id }
+  }))
+}
+
+const { id } = Astro.params
+const title = getSidebarMap(defaultLang).get(`/${id}`)?.title || ''
+---
+
+<Page {title} />

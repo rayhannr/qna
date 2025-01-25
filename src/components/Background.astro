@@ -1,0 +1,22 @@
+<div class="bg-grid grid-vertical"></div>
+<div class="bg-grid grid-horizontal"></div>
+<img
+  src="/images/background.svg"
+  class="fixed top-0 left-0 w-full h-full -z-[1] blur-[80px] saturate-200 dark:saturate-100 opacity-50 motion-safe:animate-pulse-slow"
+/>
+
+<style>
+  .bg-grid {
+    background-size: 20px 20px;
+    image-rendering: pixelated;
+    mask-image: linear-gradient(to bottom, white 0%, white 33%, transparent 90%);
+    @apply -z-30 bg-left-top max-h-[640px] inset-0 absolute from-neutral-300 dark:from-neutral-800 to-[1px];
+  }
+
+  .grid-horizontal {
+    @apply bg-gradient-to-r;
+  }
+  .grid-vertical {
+    @apply bg-gradient-to-b;
+  }
+</style>
