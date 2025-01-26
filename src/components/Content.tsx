@@ -8,7 +8,7 @@ export const Content = ({ children, lang }: { children: ReactNode; lang: string 
   <SidebarProvider>
     <AppSidebar lang={lang} />
     <main className="w-full">
-      <div className="flex justify-between items-center flex-wrap p-2">
+      <div className="flex justify-between items-center flex-wrap p-2 sticky top-0 max-lg:backdrop-blur-sm z-10">
         <SidebarTrigger />
         <Select
           value={lang}

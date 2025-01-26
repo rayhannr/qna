@@ -1,37 +1,38 @@
-import { type ui } from '@/i18n/ui'
-import { useTranslations } from '@/i18n/utils'
+import { defaultLang, type UI, type ui } from '@/i18n/ui'
+import { useTranslations, type TranslationKey } from '@/i18n/utils'
 import { Snowflake } from 'lucide-react'
 import en from '@/i18n/en.json'
 
 const enKeys = Object.keys(en)
 enKeys.filter((key) => key.startsWith('ice.breakers'))
 
-const getQnALength = (id: string) => {
-  const filteredKeys = enKeys.filter((key) => key.startsWith(id))
+const getQnA = (id: string, lang: string) => {
+  const t = useTranslations(lang as UI)
+
+  const length = Math.floor(enKeys.filter((key) => key.startsWith(id)).length / 2)
+  return Array.from({ length }, (_, index) => index + 1).map((idx) => ({
+    question: t(`${id}.${idx}.question` as TranslationKey),
+    answer: (
+      <>
+        {t(`${id}.${idx}.answer` as TranslationKey)
+          .split('\n')
+          .map((text: string) => (
+            <p key={text}>{text}</p>
+          ))}
+      </>
+    )
+  }))
 }
 
 export const getSidebarItems = (lang: string) => {
-  const t = useTranslations(lang as keyof typeof ui)
+  const t = useTranslations(lang as UI)
 
   return [
     {
       title: t('nav.ice.breakers'),
       id: 'ice-breakers',
       icon: Snowflake,
-      qna: [
-        {
-          question: t('ice.breakers.1.question'),
-          answer: t('ice.breakers.1.answer')
-        },
-        {
-          question: t('ice.breakers.2.question'),
-          answer: t('ice.breakers.2.answer')
-        },
-        {
-          question: t('ice.breakers.3.question'),
-          answer: t('ice.breakers.3.answer')
-        }
-      ]
+      qna: getQnA('ice.breakers', lang)
     }
   ]
 }
