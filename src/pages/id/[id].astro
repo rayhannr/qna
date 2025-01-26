@@ -9,8 +9,8 @@ export async function getStaticPaths() {
   }))
 }
 
-const { id } = Astro.params
-const title = getSidebarMap('id').get(`/${id}`)?.title || ''
+const { id = '' } = Astro.params
+const title = getSidebarMap('id').get(id)?.title || ''
 ---
 
 <Page {title} />

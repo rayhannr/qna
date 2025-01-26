@@ -38,14 +38,14 @@ export function AppSidebar({ lang }: { lang: string }) {
       </SidebarHeader>
       <SidebarContent>
         <SidebarGroup>
-          <SidebarGroupLabel>Category</SidebarGroupLabel>
+          <SidebarGroupLabel>{t('nav.category')}</SidebarGroupLabel>
           <SidebarGroupContent>
             <SidebarMenu>
               {sidebarItems.map((item) => {
                 const url = getRelativeLocaleUrl(lang, item.id)
                 return (
                   <SidebarMenuItem key={item.title}>
-                    <SidebarMenuButton asChild isActive={pathname.endsWith(item.id)}>
+                    <SidebarMenuButton asChild isActive={pathname.includes(item.id)}>
                       <a href={url}>
                         <item.icon />
                         <span>{item.title}</span>

@@ -10,8 +10,8 @@ export async function getStaticPaths() {
   }))
 }
 
-const { id } = Astro.params
-const title = getSidebarMap(defaultLang).get(`/${id}`)?.title || ''
+const { id = '' } = Astro.params
+const title = getSidebarMap(defaultLang).get(id)?.title || ''
 ---
 
 <Page {title} />
