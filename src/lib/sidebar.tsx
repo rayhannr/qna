@@ -1,6 +1,6 @@
 import { defaultLang, type UI, type ui } from '@/i18n/ui'
 import { useTranslations, type TranslationKey } from '@/i18n/utils'
-import { BriefcaseBusiness, Film, HandHelping, Snowflake } from 'lucide-react'
+import { BriefcaseBusiness, Film, HandHelping, MessagesSquare, Snowflake } from 'lucide-react'
 import en from '@/i18n/en.json'
 
 const enKeys = Object.keys(en)
@@ -51,6 +51,12 @@ export const getSidebarItems = (lang: string) => {
       id: 'religion',
       icon: HandHelping,
       qna: getQnA('religion', lang)
+    },
+    {
+      title: t('nav.communication'),
+      id: 'communication',
+      icon: MessagesSquare,
+      qna: getQnA('communication', lang)
     }
   ]
 }
