@@ -45,7 +45,7 @@ export function AppSidebar({ lang }: { lang: string }) {
                 const url = getRelativeLocaleUrl(lang, item.id)
                 return (
                   <SidebarMenuItem key={item.title}>
-                    <SidebarMenuButton asChild isActive={url.includes(pathname)}>
+                    <SidebarMenuButton asChild isActive={pathname.endsWith(item.id)}>
                       <a href={url}>
                         <item.icon />
                         <span>{item.title}</span>

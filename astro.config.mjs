@@ -12,7 +12,7 @@ export default defineConfig({
     locales: ['en', 'id'],
     defaultLocale: 'en',
     routing: {
-      prefixDefaultLocale: true
+      prefixDefaultLocale: false
     }
   },
   integrations: [react(), tailwind({ applyBaseStyles: false })]
