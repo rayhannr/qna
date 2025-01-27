@@ -1,6 +1,17 @@
 import { defaultLang, type UI, type ui } from '@/i18n/ui'
 import { useTranslations, type TranslationKey } from '@/i18n/utils'
-import { Baby, BriefcaseBusiness, Film, HandHelping, Heart, House, MessagesSquare, Snowflake, Users } from 'lucide-react'
+import {
+  Baby,
+  BriefcaseBusiness,
+  Film,
+  HandHelping,
+  Heart,
+  House,
+  MessagesSquare,
+  Snowflake,
+  Users,
+  Wallet
+} from 'lucide-react'
 import en from '@/i18n/en.json'
 
 const enKeys = Object.keys(en)
@@ -81,6 +92,12 @@ export const getSidebarItems = (lang: string) => {
       id: 'children',
       icon: Baby,
       qna: getQnA('children', lang)
+    },
+    {
+      title: t('nav.finance'),
+      id: 'finance',
+      icon: Wallet,
+      qna: getQnA('finance', lang)
     }
   ]
 }
