@@ -20,8 +20,11 @@ export const Content = ({ children, lang }: { children: ReactNode; lang: string 
             <SelectValue placeholder="Select Language" />
           </SelectTrigger>
           <SelectContent>
-            <SelectItem value="en">{languages.en}</SelectItem>
-            <SelectItem value="id">{languages.id}</SelectItem>
+            {Object.entries(languages).map(([key, value]) => (
+              <SelectItem value={key} key={key}>
+                {value}
+              </SelectItem>
+            ))}
           </SelectContent>
         </Select>
       </div>
