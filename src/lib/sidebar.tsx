@@ -11,6 +11,7 @@ import {
   MessagesSquare,
   Snowflake,
   Users,
+  UserX,
   Wallet
 } from 'lucide-react'
 import en from '@/i18n/en.json'
@@ -105,6 +106,12 @@ export const getSidebarItems = (lang: string) => {
       id: 'health',
       icon: Activity,
       qna: getQnA('health', lang)
+    },
+    {
+      title: t('nav.previous'),
+      id: 'previous',
+      icon: UserX,
+      qna: getQnA('previous', lang)
     }
   ]
 }
