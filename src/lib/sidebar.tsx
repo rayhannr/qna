@@ -1,6 +1,7 @@
 import { defaultLang, type UI, type ui } from '@/i18n/ui'
 import { useTranslations, type TranslationKey } from '@/i18n/utils'
 import {
+  Activity,
   Baby,
   BriefcaseBusiness,
   Film,
@@ -98,6 +99,12 @@ export const getSidebarItems = (lang: string) => {
       id: 'finance',
       icon: Wallet,
       qna: getQnA('finance', lang)
+    },
+    {
+      title: t('nav.health'),
+      id: 'health',
+      icon: Activity,
+      qna: getQnA('health', lang)
     }
   ]
 }
